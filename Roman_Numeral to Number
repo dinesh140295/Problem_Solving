@@ -1,0 +1,25 @@
+/*convert roman numeral to Number
+I - 1 
+V - 5
+X - 10
+L - 50
+C - 100
+D - 500
+M - 1000
+*/
+
+let roman_numeral = "ID".split('');
+let rom_num_obj = {"I":1, "V":5, "X":10, "L":50, "C":100, "D":500, "M":1000};
+let result = 0;
+let x = 0;
+for(x=0; x<roman_numeral.length-1; x++) {
+    if(rom_num_obj[roman_numeral[x]] < rom_num_obj[roman_numeral[x+1]]) {
+        result -= rom_num_obj[roman_numeral[x]];
+    }else {
+        result += rom_num_obj[roman_numeral[x]];
+    }
+}
+
+//add the last roman numeral
+result = result + rom_num_obj[roman_numeral[x]];
+console.log(result);
